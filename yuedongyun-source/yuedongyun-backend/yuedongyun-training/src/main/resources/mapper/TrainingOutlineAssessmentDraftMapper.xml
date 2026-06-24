@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuedongyun.training.mapper.TrainingOutlineAssessmentDraftMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.yuedongyun.training.domain.po.TrainingOutlineAssessmentDraft">
+        <id column="id" property="id" />
+        <result column="training_id" property="trainingId" />
+        <result column="outline_id" property="outlineId" />
+        <result column="assessment_id" property="assessmentId" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, training_id, outline_id, assessment_id, create_time
+    </sql>
+
+</mapper>
+

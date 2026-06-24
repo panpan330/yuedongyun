@@ -1,0 +1,26 @@
+*
+!.gitignore
+!yuedongyun-source/
+yuedongyun-source/*
+!yuedongyun-source/yuedongyun-backend/
+!yuedongyun-source/yuedongyun-admin/
+!yuedongyun-source/yuedongyun-portal/
+!yuedongyun-source/sql/
+!yuedongyun-source/yuedongyun-backend/**
+!yuedongyun-source/yuedongyun-admin/**
+!yuedongyun-source/yuedongyun-portal/**
+!yuedongyun-source/sql/**
+
+# build artifacts and local environment
+yuedongyun-source/**/node_modules/
+yuedongyun-source/**/dist/
+yuedongyun-source/**/target/
+yuedongyun-source/**/build/
+yuedongyun-source/**/coverage/
+yuedongyun-source/**/.cache/
+yuedongyun-source/**/.idea/
+yuedongyun-source/**/.vscode/
+yuedongyun-source/**/.history/
+yuedongyun-source/**/.DS_Store
+yuedongyun-source/**/*.md
+yuedongyun-source/**/*.log

@@ -1,0 +1,59 @@
+package com.yuedongyun.training.domain.dto;
+
+import com.yuedongyun.common.exceptions.BadRequestException;
+import com.yuedongyun.common.utils.CollUtils;
+import com.yuedongyun.common.utils.StringUtils;
+import com.yuedongyun.common.validate.Checker;
+import com.yuedongyun.training.constants.TrainingConstants;
+import com.yuedongyun.training.constants.TrainingErrorInfo;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.List;
+
+/**
+ * @author wusongsong
+ * @since 2022/7/11 16:49
+ * @version 1.0.0
+ **/
+@Data
+@ApiModel(description = "章节")
+public class OutlineSaveDTO implements Checker {
+    @ApiModelProperty("章、节、练习id")
+    private Long id;
+    @ApiModelProperty("目录类型1：章，2：节，3：测试")
+    @NotNull(message = "")
+    private Integer type;
+    @ApiModelProperty("章节练习名称")
+    private String name;
+    @ApiModelProperty("章排序，章一定要传，小节和练习不需要传")
+    private Integer index;
+
+    @ApiModelProperty("当前章的小节或练习")
+    @Size(min = 1, message = "不能出现空章")
+    private List<OutlineSaveDTO> sessions;
+
+    @Override
+    public void check() {
+        //名称为空校验
+        if(type == TrainingConstants.OutlineType.PHASE && StringUtils.isEmpty(name)) {
+            throw new BadRequestException(TrainingErrorInfo.Msg.TRAINING_CATAS_SAVE_NAME_NULL);
+        }else if(StringUtils.isEmpty(name)){
+            throw new BadRequestException(TrainingErrorInfo.Msg.TRAINING_CATAS_SAVE_NAME_NULL2);
+        }
+        //名称长度问题
+        if (type == TrainingConstants.OutlineType.PHASE && name.length() > 30){
+            throw new BadRequestException(TrainingErrorInfo.Msg.TRAINING_CATAS_SAVE_NAME_SIZE);
+        }else if(name.length() > 30) {
+            throw new BadRequestException(TrainingErrorInfo.Msg.TRAINING_CATAS_SAVE_NAME_SIZE2);
+        }
+        if(CollUtils.isEmpty(sessions)){
+            throw new BadRequestException("不能出现空章");
+        }
+
+    }
+}
+

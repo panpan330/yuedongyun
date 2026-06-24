@@ -1,0 +1,19 @@
+{
+  "groups": [
+    {
+      "name": "yuedongyun.auth.gateway",
+      "type": "com.yuedongyun.authsdk.gateway.config.AuthAutoConfiguration",
+      "sourceType": "com.yuedongyun.authsdk.gateway.config.AuthProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "yuedongyun.auth.excludePath",
+      "type": "java.util.Set",
+      "description": "不用登录就能访问的路径，ant风格通配符",
+      "sourceType": "com.yuedongyun.authsdk.gateway.config.AuthProperties",
+      "defaultValue": ""
+    }
+  ],
+  "hints": []
+}

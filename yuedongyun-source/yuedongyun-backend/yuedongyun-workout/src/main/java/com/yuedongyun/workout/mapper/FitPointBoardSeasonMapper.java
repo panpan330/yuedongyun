@@ -1,0 +1,16 @@
+package com.yuedongyun.workout.mapper;
+
+import com.yuedongyun.workout.domain.po.FitPointBoardSeason;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author 虎哥
+ */
+public interface FitPointBoardSeasonMapper extends BaseMapper<FitPointBoardSeason> {
+
+}
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuedongyun.campaign.mapper.VoucherMapper">
+
+    <update id="incrUsedNum">
+        UPDATE voucher SET used_num = used_num + #{amount}
+        WHERE id IN
+        <foreach collection="voucherIds" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </update>
+</mapper>
+

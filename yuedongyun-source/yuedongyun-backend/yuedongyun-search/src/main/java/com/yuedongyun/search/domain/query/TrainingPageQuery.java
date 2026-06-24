@@ -1,0 +1,43 @@
+﻿package com.yuedongyun.search.domain.query;
+
+import com.yuedongyun.common.domain.query.PageQuery;
+import com.yuedongyun.common.utils.DateUtils;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
+
+@EqualsAndHashCode(callSuper = true)
+@Data
+@ApiModel(description = "训练搜索条件")
+public class TrainingPageQuery extends PageQuery {
+
+    @ApiModelProperty(value = "搜索关键字", example = "燃脂")
+    private String keyword;
+    @ApiModelProperty(value = "训练1级分类id", example = "1")
+    private Long categoryIdLv1;
+    @ApiModelProperty(value = "训练2级分类id", example = "1")
+    private Long categoryIdLv2;
+    @ApiModelProperty(value = "训练3级分类id", example = "1")
+    private Long categoryIdLv3;
+    @ApiModelProperty(value = "售卖模式，true：免费，false：收费", example = "true")
+    private Boolean free;
+    @ApiModelProperty(value = "训练难度，1：入门，2：进阶，3：高阶", example = "1")
+    private Integer difficulty;
+    @ApiModelProperty(value = "训练部位", example = "臀腿")
+    private String trainPart;
+    @ApiModelProperty(value = "训练状态，1：待上架，2：已上架，3：已下架，4：已完结", example = "1")
+    private Integer status;
+    @ApiModelProperty(value = "训练类型，1-录播，2-直播", example = "1")
+    private Integer type;
+    @ApiModelProperty(value = "更新时间区间的开始时间", example = "2022-7-18 19:52:36")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime beginTime;
+    @DateTimeFormat(pattern = DateUtils.DEFAULT_DATE_TIME_FORMAT)
+    @ApiModelProperty(value = "更新时间区间的结束时间", example = "2022-7-18 19:52:36")
+    private LocalDateTime endTime;
+}
+
