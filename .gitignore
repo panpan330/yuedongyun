@@ -1,5 +1,6 @@
 *
 !.gitignore
+!README.md
 !yuedongyun-source/
 yuedongyun-source/*
 !yuedongyun-source/yuedongyun-backend/
